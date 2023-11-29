@@ -11,7 +11,14 @@ class Post(models.Model):
         ordering=('-pub_date', ) #-反向排序
     def __str__(self) -> str:
         return self.title
+
+class Comment(models.Model):
+    post=models.ForeignKey(Post, on_delete=models.CASCADE)
+    text=models.CharField(max_length=200)
+    pub_date=models.DateTimeField(auto_now_add=True)
     
+    def __str__(self) -> str:
+        return self.text    
     
 class Product(models.Model):
     SIZES = (
