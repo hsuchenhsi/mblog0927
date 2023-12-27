@@ -10,6 +10,7 @@ class Post(models.Model):
     
     class Meta:
         ordering=('-pub_date', ) #-反向排序
+        
     def __str__(self) -> str:
         return self.title
 
